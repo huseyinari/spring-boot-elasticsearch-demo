@@ -40,6 +40,13 @@
 			<artifactId>spring-data-elasticsearch</artifactId>
 			<version>4.4.9</version>
 		</dependency>
+
+		<!-- org.springframework.beans.BeanInstantiationException: Failed to instantiate [co.elastic.clients.elasticsearch.ElasticsearchClient]: Factory method 'elasticsearchClient' threw exception; nested exception is java.lang.NoClassDefFoundError: jakarta/json/JsonException -->
+		<dependency>
+			<groupId>jakarta.json</groupId>
+			<artifactId>jakarta.json-api</artifactId>
+			<version>2.0.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>

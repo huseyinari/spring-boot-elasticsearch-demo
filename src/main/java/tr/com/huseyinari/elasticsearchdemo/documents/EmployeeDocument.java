@@ -30,4 +30,16 @@ public class EmployeeDocument {
 
     @Field(type = FieldType.Boolean, name = "active")
     private boolean active;
+
+    @Override
+    public String toString() {
+        return "EmployeeDocument{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", salary=" + salary +
+                ", age=" + age +
+                ", startDate=" + startDate +
+                ", active=" + active +
+                '}';
+    }
 }
