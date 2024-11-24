@@ -19,8 +19,6 @@ import java.util.stream.StreamSupport;
 @Service
 @RequiredArgsConstructor
 public class EmployeeService {
-    //private final ElasticsearchOperations elasticsearchOperations;
-//    private final ElasticsearchClient elasticsearchClient;
     private final EmployeeRepository employeeRepository;
 
     public List<EmployeeDocument> findAll() {
@@ -65,6 +63,4 @@ public class EmployeeService {
         employeeRepository.deleteById(id);
         return true;
     }
-
-
 }

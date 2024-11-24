@@ -1,17 +1,20 @@
 package tr.com.huseyinari.elasticsearchdemo.documents;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
+import org.springframework.data.elasticsearch.annotations.WriteTypeHint;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
-@Document(indexName = "employees", createIndex = true)
+@Document(indexName = "employees", createIndex = true, writeTypeHint = WriteTypeHint.FALSE)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class EmployeeDocument {
     @Id
     private String id;
@@ -20,7 +23,7 @@ public class EmployeeDocument {
     private String name;
 
     @Field(type = FieldType.Float, name = "salary")
-    private Long salary;
+    private Float salary;
 
     @Field(type = FieldType.Integer, name = "age")
     private Integer age;
@@ -30,16 +33,4 @@ public class EmployeeDocument {
 
     @Field(type = FieldType.Boolean, name = "active")
     private boolean active;
-
-    @Override
-    public String toString() {
-        return "EmployeeDocument{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", salary=" + salary +
-                ", age=" + age +
-                ", startDate=" + startDate +
-                ", active=" + active +
-                '}';
-    }
 }
